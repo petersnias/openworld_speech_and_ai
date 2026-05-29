@@ -1,0 +1,42 @@
+name: OpenWorldLanguage
+options:
+  bundleIdPrefix: com.openworld
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15"
+  createIntermediateGroups: true
+
+packages:
+  WhisperKit:
+    url: https://github.com/argmaxinc/WhisperKit
+    from: "0.9.0"
+
+targets:
+  OpenWorldLanguage:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: OpenWorldLanguage
+    info:
+      path: OpenWorldLanguage/Info.plist
+      properties:
+        CFBundleDisplayName: OpenWorld Language
+        NSCameraUsageDescription: "AR requires camera access to place language learning characters in your environment."
+        NSMicrophoneUsageDescription: "Microphone access is needed to hear your spoken French."
+        NSLocationWhenInUseUsageDescription: "Location lets us trigger scenarios at real-world places."
+        UIRequiredDeviceCapabilities:
+          - arkit
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UILaunchScreen: {}
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        DEVELOPMENT_TEAM: ""
+        PRODUCT_BUNDLE_IDENTIFIER: com.openworld.language
+        TARGETED_DEVICE_FAMILY: "1"
+        ENABLE_PREVIEWS: "YES"
+    dependencies:
+      - package: WhisperKit
