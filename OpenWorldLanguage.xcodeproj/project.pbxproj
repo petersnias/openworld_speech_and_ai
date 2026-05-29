@@ -13,6 +13,7 @@
 		20CDDA758F4DCAD6A360B834 /* OpenWorldLanguageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5D88632B1CCD2331E2309 /* OpenWorldLanguageApp.swift */; };
 		52BADDC22AACAFC717977C23 /* MicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC16CDC477D03AC2F86C853 /* MicButton.swift */; };
 		86906A606148F7CE15171420 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABC726B2CB4BC6CB4157E6 /* ARViewContainer.swift */; };
+		99590B1B9238C92200F6BB9F /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2418DACB0EE87DC5F004D3 /* StartScreenView.swift */; };
 		A1B52AED73B60EBEFC316304 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F4F4AB337569A0C60C85B /* AudioSessionManager.swift */; };
 		A5C17F0F76FB312BAE8D0493 /* HUDOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F1CA684C47CB86A48D6035 /* HUDOverlay.swift */; };
 		C20906EBB7509215CE55675B /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1FBDB1A0220B1920E84009 /* TranscriptView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E2418DACB0EE87DC5F004D3 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		202B071BC4FA73A7482C361A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4F1FBDB1A0220B1920E84009 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
 		A0DD4C4748FE3BD265A9CF41 /* NPCEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCEntity.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				B7F1CA684C47CB86A48D6035 /* HUDOverlay.swift */,
 				DAC16CDC477D03AC2F86C853 /* MicButton.swift */,
+				0E2418DACB0EE87DC5F004D3 /* StartScreenView.swift */,
 				4F1FBDB1A0220B1920E84009 /* TranscriptView.swift */,
 			);
 			path = UI;
@@ -180,6 +183,7 @@
 				0C5D94AB653CD6954AE1EBF4 /* NPCSpeaker.swift in Sources */,
 				20CDDA758F4DCAD6A360B834 /* OpenWorldLanguageApp.swift in Sources */,
 				052A7BE03067CB3A24A7C934 /* SpeechRecognizer.swift in Sources */,
+				99590B1B9238C92200F6BB9F /* StartScreenView.swift in Sources */,
 				C20906EBB7509215CE55675B /* TranscriptView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

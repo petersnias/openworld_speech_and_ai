@@ -9,6 +9,7 @@ final class SpeechRecognizer: ObservableObject {
     @Published var transcript: String = ""
     @Published var isRecording: Bool = false
     @Published var isTranscribing: Bool = false
+    @Published var isWarmingUp: Bool = false
     @Published var modelReady: Bool = false
 
     private var whisperKit: WhisperKit?
@@ -27,10 +28,46 @@ final class SpeechRecognizer: ObservableObject {
         do {
             // whisper-small: ~500MB, strong French accuracy on A16 Neural Engine (~150ms latency)
             whisperKit = try await WhisperKit(model: "openai_whisper-small")
+            // Warm up the ANE compilation graph before the user's first utterance.
+            // Without this, Core ML JIT-compiles on the first real transcribe() call, causing
+            // a ~20s cold-start stall. Warmup moves that cost to app launch instead.
+            await warmUpANE()
             modelReady = true
         } catch {
             print("[SpeechRecognizer] WhisperKit load failed: \(error)")
         }
+    }
+
+    private func warmUpANE() async {
+        guard let whisperKit else { return }
+        isWarmingUp = true
+        defer { isWarmingUp = false }
+        let warmupURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("owlang_warmup.wav")
+        do {
+            try writeSilentWAV(to: warmupURL, durationSeconds: 0.5)
+            var options = DecodingOptions()
+            options.language = "fr"
+            options.task = .transcribe
+            _ = try? await whisperKit.transcribe(audioPath: warmupURL.path, decodeOptions: options)
+        } catch {
+            print("[SpeechRecognizer] ANE warmup failed: \(error)")
+        }
+    }
+
+    /// Writes a mono 16 kHz WAV file of silence — the minimum valid input for WhisperKit warmup.
+    private func writeSilentWAV(to url: URL, durationSeconds: Double) throws {
+        let sampleRate: Double = 16_000
+        let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1)!
+        let frameCount = AVAudioFrameCount(sampleRate * durationSeconds)
+        let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount)!
+        // Explicitly zero the channel data so there is no undefined noise
+        if let channelData = buffer.floatChannelData {
+            memset(channelData[0], 0, Int(frameCount) * MemoryLayout<Float>.size)
+        }
+        buffer.frameLength = frameCount
+        let file = try AVAudioFile(forWriting: url, settings: format.settings)
+        try file.write(from: buffer)
     }
 
     // MARK: - Recording

@@ -6,17 +6,6 @@ struct HUDOverlay: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Model loading banner
-            if !speechRecognizer.modelReady {
-                Text("Chargement du modèle vocal…")
-                    .font(.caption)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 7)
-                    .background(.black.opacity(0.7), in: Capsule())
-                    .padding(.top, 56)
-            }
-
             Spacer()
 
             // Live transcript
