@@ -1,0 +1,89 @@
+{
+  "scenario_id": "paris_directions_louvre",
+  "locale": "fr-FR",
+  "start_node": "npc_greeting",
+  "nodes": {
+    "npc_greeting": {
+      "npc_speech": "Bonjour ! Vous avez l'air un peu perdu. Puis-je vous aider ?",
+      "expected_intents": [
+        {
+          "id": "ask_directions",
+          "keywords": [
+            "louvre", "musee", "museum", "direction", "aller",
+            "ou", "comment", "cherche", "trouver", "aide",
+            "perdu", "perdus", "trouve", "chemin", "route",
+            "adresse", "visiter", "voir", "conduire", "guider"
+          ]
+        }
+      ],
+      "on_match": "npc_gives_directions",
+      "on_fallback": "npc_confused",
+      "hint_after_attempts": 2,
+      "hints": [
+        { "id": "hint_excuse", "french": "Excusez-moi", "english": "Excuse me" },
+        { "id": "hint_cherche", "french": "Je cherche le Louvre", "english": "I'm looking for the Louvre" },
+        { "id": "hint_aider", "french": "Pouvez-vous m'aider ?", "english": "Can you help me?" }
+      ]
+    },
+
+    "npc_confused": {
+      "npc_speech": "Pardon ? Je n'ai pas très bien compris. Vous cherchez un endroit en particulier ?",
+      "expected_intents": [
+        {
+          "id": "ask_directions",
+          "keywords": [
+            "louvre", "musee", "museum", "direction", "aller",
+            "ou", "comment", "cherche", "trouver", "aide",
+            "perdu", "perdus", "trouve", "chemin", "route",
+            "adresse", "visiter", "voir", "conduire", "guider"
+          ]
+        }
+      ],
+      "on_match": "npc_gives_directions",
+      "on_fallback": "npc_confused"
+    },
+
+    "npc_gives_directions": {
+      "npc_speech": "Ah, le Louvre ! Bien sûr. Allez tout droit, puis tournez à gauche au premier feu rouge. C'est à cinq minutes à pied.",
+      "expected_intents": [
+        {
+          "id": "confirm_understanding",
+          "keywords": [
+            "merci", "compris", "accord", "ok", "bien", "parfait",
+            "entendu", "oui", "super", "genial", "bonne", "vu",
+            "remercie", "okay", "bravo", "gotcha", "understood", "got"
+          ]
+        }
+      ],
+      "on_match": "npc_farewell",
+      "on_fallback": "npc_repeat_directions",
+      "hint_after_attempts": 2,
+      "hints": [
+        { "id": "hint_merci", "french": "Merci beaucoup !", "english": "Thank you very much!" },
+        { "id": "hint_compris", "french": "J'ai compris", "english": "I understood" },
+        { "id": "hint_accord", "french": "D'accord", "english": "Okay / Agreed" }
+      ]
+    },
+
+    "npc_repeat_directions": {
+      "npc_speech": "D'accord, je répète ! Tout droit, puis tournez à gauche au feu rouge. Vous avez compris ?",
+      "expected_intents": [
+        {
+          "id": "confirm_understanding",
+          "keywords": [
+            "merci", "compris", "accord", "ok", "bien", "parfait",
+            "entendu", "oui", "super", "genial", "bonne", "vu",
+            "remercie", "okay", "bravo", "gotcha", "understood", "got"
+          ]
+        }
+      ],
+      "on_match": "npc_farewell",
+      "on_fallback": "npc_repeat_directions"
+    },
+
+    "npc_farewell": {
+      "npc_speech": "Parfait ! Bonne visite du Louvre. Au revoir et bonne chance !",
+      "is_terminal": true
+    }
+  }
+}

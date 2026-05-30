@@ -7,6 +7,7 @@ import Combine
 @MainActor
 final class SpeechRecognizer: ObservableObject {
     @Published var transcript: String = ""
+    @Published var scoredWords: [ScoredWord] = []
     @Published var isRecording: Bool = false
     @Published var isTranscribing: Bool = false
     @Published var isWarmingUp: Bool = false
@@ -26,8 +27,9 @@ final class SpeechRecognizer: ObservableObject {
 
     private func loadModel() async {
         do {
-            // whisper-small: ~500MB, strong French accuracy on A16 Neural Engine (~150ms latency)
-            whisperKit = try await WhisperKit(model: "openai_whisper-small")
+            // whisper-tiny: ~75MB — use for testing when storage is limited.
+            // Swap back to "openai_whisper-small" for better French accuracy once space allows.
+            whisperKit = try await WhisperKit(model: "openai_whisper-tiny")
             // Warm up the ANE compilation graph before the user's first utterance.
             // Without this, Core ML JIT-compiles on the first real transcribe() call, causing
             // a ~20s cold-start stall. Warmup moves that cost to app launch instead.
@@ -85,6 +87,7 @@ final class SpeechRecognizer: ObservableObject {
             audioRecorder?.record()
             isRecording = true
             transcript = ""
+            scoredWords = []
         } catch {
             print("[SpeechRecognizer] Recording start failed: \(error)")
         }
@@ -106,11 +109,17 @@ final class SpeechRecognizer: ObservableObject {
             var options = DecodingOptions()
             options.language = "fr"
             options.task = .transcribe
+            options.wordTimestamps = true   // enables WordTiming on each segment
             let results = try await whisperKit.transcribe(
                 audioPath: recordingURL.path,
                 decodeOptions: options
             )
-            transcript = results.first?.text.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let first = results.first
+            transcript = first?.text.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            scoredWords = first?.segments
+                .compactMap { $0.words }
+                .flatMap { $0 }
+                .map { ScoredWord(word: $0.word, probability: $0.probability) } ?? []
         } catch {
             transcript = "[Transcription error]"
             print("[SpeechRecognizer] Transcription failed: \(error)")

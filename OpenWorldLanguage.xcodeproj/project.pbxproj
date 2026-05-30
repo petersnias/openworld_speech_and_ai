@@ -8,32 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		052A7BE03067CB3A24A7C934 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C26DECBC73FFF55B5D810 /* SpeechRecognizer.swift */; };
+		05E0FBE1250F472C04227E4B /* DialogueEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDEA0FF3DF8857D05E74190 /* DialogueEngine.swift */; };
 		092B94B25345A5176AA6BD7D /* NPCEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD4C4748FE3BD265A9CF41 /* NPCEntity.swift */; };
 		0C5D94AB653CD6954AE1EBF4 /* NPCSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9D0DDF4DD9D831BA3E16EB /* NPCSpeaker.swift */; };
+		199EAAA39D9FDEE70AB1C411 /* npc._character.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 19C15780353B589B9DF7AA07 /* npc._character.usdz */; };
 		20CDDA758F4DCAD6A360B834 /* OpenWorldLanguageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5D88632B1CCD2331E2309 /* OpenWorldLanguageApp.swift */; };
+		2F0BF7782CAF6AE2DB0CF14E /* LLMEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16EBEE824A2A34E79905133 /* LLMEngine.swift */; };
 		52BADDC22AACAFC717977C23 /* MicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC16CDC477D03AC2F86C853 /* MicButton.swift */; };
+		65FBDF29E54405CF7083CFC4 /* SessionScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD021E45CA8138A5FD279B88 /* SessionScore.swift */; };
+		688C32C13FA6FC518B3A0C53 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C53EFC751CA7C682535FCB /* SessionStore.swift */; };
 		86906A606148F7CE15171420 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABC726B2CB4BC6CB4157E6 /* ARViewContainer.swift */; };
 		99590B1B9238C92200F6BB9F /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2418DACB0EE87DC5F004D3 /* StartScreenView.swift */; };
 		A1B52AED73B60EBEFC316304 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F4F4AB337569A0C60C85B /* AudioSessionManager.swift */; };
 		A5C17F0F76FB312BAE8D0493 /* HUDOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F1CA684C47CB86A48D6035 /* HUDOverlay.swift */; };
+		BCC0277AB4BF52DBC1D46B56 /* paris_directions_louvre.json in Resources */ = {isa = PBXBuildFile; fileRef = A2FF3BD9770F935BA18C25EC /* paris_directions_louvre.json */; };
+		BE6CD60E62EA45A013852D60 /* IntentResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4337A2EAE46FBD5EADEDE87 /* IntentResolver.swift */; };
+		BF94961BF75CDF9B5FB62FB5 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AB87AEA6C534390843A0E /* ScoreCardView.swift */; };
 		C20906EBB7509215CE55675B /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1FBDB1A0220B1920E84009 /* TranscriptView.swift */; };
 		C683BA75AF9D5CD0E94FDF19 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = B8BC09340218C157AEA726F4 /* WhisperKit */; };
+		D08B4FD271B5EFDA783BE590 /* DialogueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC444AFE7D03B09434F8AFA2 /* DialogueModels.swift */; };
 		D2BBB8AD106EFEF638F404E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B071BC4FA73A7482C361A /* ContentView.swift */; };
+		F0C45A8F005887755C15CC93 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EBEFB2B1509FB7271CBE9 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E2418DACB0EE87DC5F004D3 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
+		19C15780353B589B9DF7AA07 /* npc._character.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = npc._character.usdz; sourceTree = "<group>"; };
 		202B071BC4FA73A7482C361A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F8EBEFB2B1509FB7271CBE9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4F1FBDB1A0220B1920E84009 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
+		7EDEA0FF3DF8857D05E74190 /* DialogueEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueEngine.swift; sourceTree = "<group>"; };
 		A0DD4C4748FE3BD265A9CF41 /* NPCEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCEntity.swift; sourceTree = "<group>"; };
+		A16EBEE824A2A34E79905133 /* LLMEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMEngine.swift; sourceTree = "<group>"; };
+		A2FF3BD9770F935BA18C25EC /* paris_directions_louvre.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = paris_directions_louvre.json; sourceTree = "<group>"; };
+		AD021E45CA8138A5FD279B88 /* SessionScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScore.swift; sourceTree = "<group>"; };
+		B4337A2EAE46FBD5EADEDE87 /* IntentResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentResolver.swift; sourceTree = "<group>"; };
 		B53C26DECBC73FFF55B5D810 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		B7C53EFC751CA7C682535FCB /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		B7F1CA684C47CB86A48D6035 /* HUDOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDOverlay.swift; sourceTree = "<group>"; };
 		BF38EFB02CB80568C8985228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C22F4F4AB337569A0C60C85B /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
 		D2ABC726B2CB4BC6CB4157E6 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		DA1AB87AEA6C534390843A0E /* ScoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		DAC16CDC477D03AC2F86C853 /* MicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicButton.swift; sourceTree = "<group>"; };
 		E9150865B220CB398F48BD9D /* OpenWorldLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWorldLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF5D88632B1CCD2331E2309 /* OpenWorldLanguageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorldLanguageApp.swift; sourceTree = "<group>"; };
+		FC444AFE7D03B09434F8AFA2 /* DialogueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueModels.swift; sourceTree = "<group>"; };
 		FE9D0DDF4DD9D831BA3E16EB /* NPCSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCSpeaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +69,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AB35A5805D8F12B04FF3F04 /* Dialogue */ = {
+			isa = PBXGroup;
+			children = (
+				7EDEA0FF3DF8857D05E74190 /* DialogueEngine.swift */,
+				FC444AFE7D03B09434F8AFA2 /* DialogueModels.swift */,
+				B4337A2EAE46FBD5EADEDE87 /* IntentResolver.swift */,
+			);
+			path = Dialogue;
+			sourceTree = "<group>";
+		};
+		579D150DBE778B0D670B3220 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				19C15780353B589B9DF7AA07 /* npc._character.usdz */,
+				A2FF3BD9770F935BA18C25EC /* paris_directions_louvre.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5B97CC2B2F1C23E69695E179 /* OpenWorldLanguage */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +95,10 @@
 				7393ECF380594A5473EBBF37 /* App */,
 				AF422A7C0BBE8439E5C2EC49 /* AR */,
 				9FE9FDD786672BD21BED6343 /* Audio */,
+				4AB35A5805D8F12B04FF3F04 /* Dialogue */,
+				CD23656CA2DABDC103D0F9C1 /* LLM */,
+				579D150DBE778B0D670B3220 /* Resources */,
+				C97B177C48D14BA5308B7415 /* Scoring */,
 				A67444AC323ACEA8E5C9E340 /* UI */,
 			);
 			path = OpenWorldLanguage;
@@ -72,6 +115,7 @@
 		7393ECF380594A5473EBBF37 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3F8EBEFB2B1509FB7271CBE9 /* Config.swift */,
 				202B071BC4FA73A7482C361A /* ContentView.swift */,
 				EBF5D88632B1CCD2331E2309 /* OpenWorldLanguageApp.swift */,
 			);
@@ -93,6 +137,7 @@
 			children = (
 				B7F1CA684C47CB86A48D6035 /* HUDOverlay.swift */,
 				DAC16CDC477D03AC2F86C853 /* MicButton.swift */,
+				DA1AB87AEA6C534390843A0E /* ScoreCardView.swift */,
 				0E2418DACB0EE87DC5F004D3 /* StartScreenView.swift */,
 				4F1FBDB1A0220B1920E84009 /* TranscriptView.swift */,
 			);
@@ -116,6 +161,23 @@
 			);
 			sourceTree = "<group>";
 		};
+		C97B177C48D14BA5308B7415 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				AD021E45CA8138A5FD279B88 /* SessionScore.swift */,
+				B7C53EFC751CA7C682535FCB /* SessionStore.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
+		CD23656CA2DABDC103D0F9C1 /* LLM */ = {
+			isa = PBXGroup;
+			children = (
+				A16EBEE824A2A34E79905133 /* LLMEngine.swift */,
+			);
+			path = LLM;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,6 +186,7 @@
 			buildConfigurationList = 366A13FEE1AEA78D7F14E365 /* Build configuration list for PBXNativeTarget "OpenWorldLanguage" */;
 			buildPhases = (
 				49DC62EF20C419BF08A4A454 /* Sources */,
+				7204D34B394096CBE9910198 /* Resources */,
 				541E3778FA6C3390840FAD17 /* Frameworks */,
 			);
 			buildRules = (
@@ -169,6 +232,18 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		7204D34B394096CBE9910198 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				199EAAA39D9FDEE70AB1C411 /* npc._character.usdz in Resources */,
+				BCC0277AB4BF52DBC1D46B56 /* paris_directions_louvre.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49DC62EF20C419BF08A4A454 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,12 +251,20 @@
 			files = (
 				86906A606148F7CE15171420 /* ARViewContainer.swift in Sources */,
 				A1B52AED73B60EBEFC316304 /* AudioSessionManager.swift in Sources */,
+				F0C45A8F005887755C15CC93 /* Config.swift in Sources */,
 				D2BBB8AD106EFEF638F404E7 /* ContentView.swift in Sources */,
+				05E0FBE1250F472C04227E4B /* DialogueEngine.swift in Sources */,
+				D08B4FD271B5EFDA783BE590 /* DialogueModels.swift in Sources */,
 				A5C17F0F76FB312BAE8D0493 /* HUDOverlay.swift in Sources */,
+				BE6CD60E62EA45A013852D60 /* IntentResolver.swift in Sources */,
+				2F0BF7782CAF6AE2DB0CF14E /* LLMEngine.swift in Sources */,
 				52BADDC22AACAFC717977C23 /* MicButton.swift in Sources */,
 				092B94B25345A5176AA6BD7D /* NPCEntity.swift in Sources */,
 				0C5D94AB653CD6954AE1EBF4 /* NPCSpeaker.swift in Sources */,
 				20CDDA758F4DCAD6A360B834 /* OpenWorldLanguageApp.swift in Sources */,
+				BF94961BF75CDF9B5FB62FB5 /* ScoreCardView.swift in Sources */,
+				65FBDF29E54405CF7083CFC4 /* SessionScore.swift in Sources */,
+				688C32C13FA6FC518B3A0C53 /* SessionStore.swift in Sources */,
 				052A7BE03067CB3A24A7C934 /* SpeechRecognizer.swift in Sources */,
 				99590B1B9238C92200F6BB9F /* StartScreenView.swift in Sources */,
 				C20906EBB7509215CE55675B /* TranscriptView.swift in Sources */,

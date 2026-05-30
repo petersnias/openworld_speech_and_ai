@@ -3,13 +3,14 @@ import ARKit
 import RealityKit
 
 struct ARViewContainer: UIViewRepresentable {
-    let npcSpeaker: NPCSpeaker
+    let onNPCPlaced: () -> Void
+    let npcIsSpeaking: Bool
 
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
         arView.session.delegate = context.coordinator
         context.coordinator.arView = arView
-        context.coordinator.npcSpeaker = npcSpeaker
+        context.coordinator.onNPCPlaced = onNPCPlaced
 
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.horizontal]
@@ -22,7 +23,10 @@ struct ARViewContainer: UIViewRepresentable {
         return arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {}
+    // Called by SwiftUI whenever npcIsSpeaking changes — forward to Coordinator.
+    func updateUIView(_ uiView: ARView, context: Context) {
+        context.coordinator.updateSpeakingState(npcIsSpeaking)
+    }
 
     func makeCoordinator() -> Coordinator {
         Coordinator()
@@ -33,7 +37,8 @@ struct ARViewContainer: UIViewRepresentable {
     @MainActor
     class Coordinator: NSObject, ARSessionDelegate {
         weak var arView: ARView?
-        var npcSpeaker: NPCSpeaker?
+        var onNPCPlaced: (() -> Void)?
+        private var npcEntity: NPCEntity?
         private var npcPlaced = false
 
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
@@ -55,13 +60,22 @@ struct ARViewContainer: UIViewRepresentable {
 
             let anchor = AnchorEntity(world: worldTransform.translation)
             let npc = NPCEntity()
+            npcEntity = npc
             anchor.addChild(npc)
             arView.scene.addAnchor(anchor)
 
-            // NPC speaks the opening greeting after a short delay to let audio session settle
+            // Brief delay so the audio session settles before the first TTS utterance.
             Task {
                 try? await Task.sleep(for: .milliseconds(600))
-                npcSpeaker?.speak("Bonjour ! Vous avez l'air perdu. Puis-je vous aider ?")
+                onNPCPlaced?()
+            }
+        }
+
+        func updateSpeakingState(_ isSpeaking: Bool) {
+            if isSpeaking {
+                npcEntity?.startTalkingAnimation()
+            } else {
+                npcEntity?.stopTalkingAnimation()
             }
         }
     }
